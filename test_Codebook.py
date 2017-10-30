@@ -4,3 +4,5 @@ sc = s.S_Codebook(4,3,0)
 
 c = sc.get_centroids()
 print c
+
+print sc.c_indx_to_coords
