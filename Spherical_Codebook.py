@@ -57,10 +57,18 @@ class S_Codebook():
             return coords_actual_layer
 
     def init_cartesians_dic(self):
+        """
+        Fuction to create a dictionary with centroids indexes as keys and a list of cartesian coordenates as values
+        :return: <{int:(float)}> Dictionary
+            keys: Centroids indexes
+            values: List conitinig the cartesian coordenates
+        """
+        # Make use of the already created dictionary containing the centroid indexes and angle indexes (coords)
         d = self.c_indx_to_coords
         cartesians_dic = {}
         for k, coords in d.items():
             cartesians = ()
+            # For all the components except the last 2 we make use of the already computed values of sin and cos
             for i, c in enumerate(coords[:-1]):
                 res = 1
                 for j in range(i):
@@ -68,6 +76,7 @@ class S_Codebook():
                 res = res * self.cos_d[c]
                 cartesians = cartesians + (res,)
             res = 1
+            # For the last 2 coordinate we need to compute the last angle (phi_p) as it is different form the rest
             for j in range(len(coords)-1):
                 res *= self.sin_d[coords[j]]
             phi_p = (coords[-1] + 0.5) * 2 * math.pi / self.get_Nspl((coords[-2] + 0.5)*self.theta)
@@ -75,9 +84,7 @@ class S_Codebook():
             rn = res * math.sin(phi_p)
             cartesians = cartesians + (rn_1, rn)
             cartesians_dic[k] = cartesians
-            print '==================='
-            print coords
-            print cartesians
+
         return cartesians_dic
 
 
@@ -99,18 +106,36 @@ class S_Codebook():
 
 
     def init_sin_dic(self):
+        """
+        Initialize a dictionary containing the sin of all the predefined angles
+        :return: <{int : float}> Dictionary with
+            key: angle index
+            value: sin of that angle
+        """
         d = {}
         for i in range(self.N_sp):
             d[i]=math.sin((i + 0.5)*self.theta)
         return d
 
     def init_cos_dic(self):
-        d={}
+        """
+        Initialize a dictionary containing the cos of all the predefined angles
+        :return: <{int : float}> Dictionary with
+            key: angle index
+            value: cos of that angle
+        """
+        d = {}
         for i in range(self.N_sp):
             d[i] = math.cos((i + 0.5)*self.theta)
         return d
 
     def get_Nspl(self, phi_i):
+        """
+        Auxiliar function to compute the number of centroids in the last layer
+        (centroids equally distributed along a circle)
+        :param phi_i: Value of the angle form the previous apple-peeling layer coordinate
+        :return: <int> Number of centroids for that layer
+        """
         N_sp_l = int(2 * math.pi / self.theta * math.sin(phi_i))
         return N_sp_l
 
