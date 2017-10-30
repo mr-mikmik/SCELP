@@ -25,7 +25,8 @@ class S_Codebook():
         self.centroids_count = 0
         self.c_indx_to_coords = {}
         self.init_Centroids(self.centroids, self.c_indx_to_coords)
-        self.c_indx_to_cart = self.init_cartesians_dic(self.c_indx_to_coords)
+        self.c_indx_to_cart = self.init_cartesians_dic()
+        self.c_indx_to_angles = self.init_angle_dic()
 
     def init_Centroids(self, c, d, lv_i=0,previous=()):
         """
@@ -55,7 +56,8 @@ class S_Codebook():
                 self.centroids_count += 1
             return coords_actual_layer
 
-    def init_cartesians_dic(self, d):
+    def init_cartesians_dic(self):
+        d = self.c_indx_to_coords
         cartesians_dic = {}
         for k, coords in d.items():
             cartesians = ()
@@ -77,6 +79,21 @@ class S_Codebook():
             print coords
             print cartesians
         return cartesians_dic
+
+
+
+    def init_angle_dic(self,):
+        d = self.c_indx_to_coords
+        angle_dic = {}
+        for k, coords in d.items():
+            angles = ()
+            for i, c in enumerate(coords[:-1]):
+                a = (c + 0.5)*self.theta
+                angles += (a,)
+            phi_p = (coords[-1] + 0.5) * 2 * math.pi / self.get_Nspl((coords[-2] + 0.5) * self.theta)
+            angles += (phi_p)
+            angle_dic[k] = angles
+        return angle_dic
 
 
 
