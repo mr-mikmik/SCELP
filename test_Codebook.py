@@ -1,8 +1,11 @@
 import Spherical_Codebook as s
 
-sc = s.S_Codebook(4,3,0)
+sc = s.S_Codebook(4,2,0)
 
 c = sc.get_centroids()
 print c
-
+print '***********************************************'
 print sc.c_indx_to_coords
+print '***********************************************'
+k =  sc.get_cartesians_dic()
+
