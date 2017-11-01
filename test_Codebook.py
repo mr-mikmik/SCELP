@@ -1,6 +1,6 @@
 import Spherical_Codebook as s
 
-sc = s.S_Codebook(4,2,0)
+sc = s.S_Codebook(3,3,0)
 
 c = sc.get_centroids()
 print c
@@ -11,4 +11,6 @@ k =  sc.get_cartesians_dic()
 print '==========================='
 print '==========================='
 print sc.peelist
+print '........................'
+print sc.preselection([1,0,0])
 

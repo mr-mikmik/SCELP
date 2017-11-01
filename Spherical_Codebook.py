@@ -44,13 +44,31 @@ class S_Codebook():
         _, sph_c0 = self.cartesian2spherical(c0)
         # 3 - Select the candidiates making use of the peelist
         peeling_centroids = self.centroids
-        def search(value,list):
-            cand = []
-            for i in len(list):
-                if i
-            returnn cand
-        for i, phi in enumerate(sph_c0):
 
+        def search(values,lists):
+            cand = []
+            # Check if we are on the last layer of the lists:
+            if type(lists[0][1]) is not list:
+                for i in range(len(lists)):
+                    if values[0] <= lists[i][0]:
+                        cand.append(values[i])
+                        cand.append(values[i-1])
+            else:
+                # If we aren't still on the last layer:
+                if values[0] < lists[0][0]:
+                    cand = search(values[1:], lists[0][1])
+                elif values[0] > lists[-1][0]:
+                    cand = search(values[1:], lists[-1][1])
+                else:
+                    for i in range(len(lists)-1):
+                        if lists[i][0] <= values[0] <= lists[i+1][0]:
+                            cand_rec_1 = search(values[1:], lists[i][1])
+                            cand_rec_2 = search(values[1:], lists[i][1])
+                            cand = cand + cand_rec_1 + cand_rec_2
+                            break
+            return cand
+
+        candidates = search(sph_c0, self.peelist)
 
         return candidates
 
@@ -75,7 +93,7 @@ class S_Codebook():
             peelist = []
             for i in range(self.N_sp):
                 c.append([])
-                phi_0 = (i * 0.5) * self.theta
+                phi_0 = (i + 0.5) * self.theta
                 peelist.append([phi_0,None])
                 # Call the same function to compute recursively
                 c[i], peelist[i][1] = self.init_Centroids(c[i], d,lv_i+1, previous=previous+(i,))
@@ -85,11 +103,14 @@ class S_Codebook():
             phi_p = (previous[-1] + 0.5)*self.theta
             Nspl = self.get_Nspl(phi_p)
             coords_actual_layer = []
+            last_layer_peelist = []
             for i in range(Nspl):
                 coords_actual_layer.append(self.centroids_count)
                 d[self.centroids_count] = previous + (i,)
+                phi_last = (i + 0.5) * 2 * math.pi / Nspl
+                last_layer_peelist.append([phi_last, self.centroids_count])
                 self.centroids_count += 1
-            return coords_actual_layer, [phi_p, coords_actual_layer]
+            return coords_actual_layer, last_layer_peelist
 
 
 
@@ -192,6 +213,7 @@ class S_Codebook():
         :param c0: cartesian n-dimentional vector
         :return: <float, (float)> modulus, n-1-dimentional list containing the spherical coordinates
         """
+        # TODO: Debugg division by Zero!!!!!!!
         sph_coords = ()     #Vector containg the angles
         modulus = np.linalg.norm(c0)
         for i, c in enumerate(c0[:-2]):
@@ -200,9 +222,9 @@ class S_Codebook():
             sph_coords += (phi_i,)
         # Last angle:
         if c0[-1]>=0:
-            phi_l = math.acos(c0[-2]/np.linalg(c0[-2:]))
+            phi_l = math.acos(c0[-2]/np.linalg.norm(c0[-2:]))
         else:
-            phi_l = 2*math.pi-math.acos(c0[-2] / np.linalg(c0[-2:]))
+            phi_l = 2*math.pi-math.acos(c0[-2] / np.linalg.norm(c0[-2:]))
         sph_coords += (phi_l,)
 
         return modulus, sph_coords
