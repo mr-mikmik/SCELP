@@ -22,10 +22,11 @@ class S_Codebook():
         self.cos_d = self.init_cos_dic()
 
         # Initialize the spherical codebook
-        self.centroids = []
+        
         self.centroids_count = 0
         self.c_indx_to_coords = {}
-        _, self.peelist = self.init_Centroids(self.centroids, self.c_indx_to_coords)
+        # peelist: List contaning 
+        self.centroids, self.peelist = self.init_centroids(self.c_indx_to_coords)
         self.c_indx_to_cart = self.init_cartesians_dic()
         self.c_indx_to_angles = self.init_angle_dic()
 
@@ -72,54 +73,51 @@ class S_Codebook():
 
         return candidates
 
-
-
-
-
     ## INITIALIZE FUNCTIONS:
 
-    def init_Centroids(self, c, d, lv_i=0,previous=()):
+    def init_centroids(self, d, lv_i=0, previous=()):
         """
         Initialize the centroids of the shape codebook. This is done following the apple-peeling method
         It stores the result in the c parameter
-        :param c: <list> centroids list where the centroids are stored
         :param d: <dic> dictionary with centroid index as a key and the dimension's coordinates as value
         :param lv_i: <int> current dimension of the apple-peeling process
         :param previous: <int> index of the previous dimension
-        :return: Nothing
+        :return:
+            centroids parameter: <list> centroids list where the centroids are stored
+            peelist: <[[float,list],[float, list],...]> list formed by pairs of angles (floats) and lists
+                each sublist if formed by another list of the same type
+                it turs to have the following shape: [float,...[[float, int],[float, int]...]..]> 
         """
         # Number of angles -> Lv - 1
         if lv_i < self.Lv - 2 :
             peelist = []
+            c = []
             for i in range(self.N_sp):
-                c.append([])
                 phi_0 = (i + 0.5) * self.theta
                 peelist.append([phi_0,None])
                 # Call the same function to compute recursively
-                c[i], peelist[i][1] = self.init_Centroids(c[i], d,lv_i+1, previous=previous+(i,))
+                c[i], peelist[i][1] = self.init_centroids(d, lv_i + 1, previous=previous + (i,))
             return c, peelist
         else:
             # The last layer of the apple peeling method
             phi_p = (previous[-1] + 0.5)*self.theta
             Nspl = self.get_Nspl(phi_p)
-            coords_actual_layer = []
+            coords_last_layer = []
             last_layer_peelist = []
             for i in range(Nspl):
-                coords_actual_layer.append(self.centroids_count)
+                coords_last_layer.append(self.centroids_count)
                 d[self.centroids_count] = previous + (i,)
                 phi_last = (i + 0.5) * 2 * math.pi / Nspl
                 last_layer_peelist.append([phi_last, self.centroids_count])
                 self.centroids_count += 1
-            return coords_actual_layer, last_layer_peelist
-
-
+            return coords_last_layer, last_layer_peelist
 
     def init_cartesians_dic(self):
         """
-        Fuction to create a dictionary with centroids indexes as keys and a list of cartesian coordenates as values
+        Function to create a dictionary with centroids indexes as keys and a list of cartesian coordenates as values
         :return: <{int:(float)}> Dictionary
             keys: Centroids indexes
-            values: List conitinig the cartesian coordenates
+            values: List containing the cartesian coordenates
         """
         # Make use of the already created dictionary containing the centroid indexes and angle indexes (coords)
         d = self.c_indx_to_coords
@@ -206,25 +204,32 @@ class S_Codebook():
     def get_cartesians_dic(self):
         return self.c_indx_to_cart
 
-
     def cartesian2spherical(self, c0):
         """
         Converts the vector to is spherical equivalent
-        :param c0: cartesian n-dimentional vector
-        :return: <float, (float)> modulus, n-1-dimentional list containing the spherical coordinates
+        :param c0: cartesian n-dimensional vector
+        :return: <float, (float)> modulus, n-1-dimensional list containing the spherical coordinates
         """
-        # TODO: Debugg division by Zero!!!!!!!
-        sph_coords = ()     #Vector containg the angles
+        # TODO: Debugg division by Zero and ANGLES!!!!!!!
+        sph_coords = ()     # Vector containg the angles
         modulus = np.linalg.norm(c0)
         for i, c in enumerate(c0[:-2]):
             mod_i = np.linalg.norm(c0[i:])
             phi_i = math.acos(c/mod_i)
             sph_coords += (phi_i,)
         # Last angle:
-        if c0[-1]>=0:
-            phi_l = math.acos(c0[-2]/np.linalg.norm(c0[-2:]))
+        last_mod = np.linalg.norm(c0[-2:])
+        # Check divison by zero case:
+        if c0[-2] == 0 and last_mod == 0:
+            if c0[-1] >= 0:
+                phi_l = math.acos(c0[-2] / last_mod)
+            else:
+                phi_l = 2*math.pi-math.acos(c0[-2] / last_mod)
         else:
-            phi_l = 2*math.pi-math.acos(c0[-2] / np.linalg.norm(c0[-2:]))
+            if c0[-1] >= 0:
+                phi_l = math.acos(c0[-2] / last_mod)
+            else:
+                phi_l = 2*math.pi-math.acos(c0[-2] / last_mod)
         sph_coords += (phi_l,)
 
         return modulus, sph_coords
