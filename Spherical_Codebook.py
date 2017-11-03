@@ -49,11 +49,14 @@ class S_Codebook():
         def search(values,lists):
             cand = []
             # Check if we are on the last layer of the lists:
+                # At this stage the list would be as:
+                    # list = [[phi1,cent1],[phi2,cent2],...]
+                    # values = [phiL]
             if type(lists[0][1]) is not list:
                 for i in range(len(lists)):
                     if values[0] <= lists[i][0]:
-                        cand.append(values[i])
-                        cand.append(values[i-1])
+                        cand.append(lists[i][1])
+                        cand.append(lists[i-1][1])
             else:
                 # If we aren't still on the last layer:
                 if values[0] < lists[0][0]:
@@ -86,7 +89,7 @@ class S_Codebook():
             centroids parameter: <list> centroids list where the centroids are stored
             peelist: <[[float,list],[float, list],...]> list formed by pairs of angles (floats) and lists
                 each sublist if formed by another list of the same type
-                it turs to have the following shape: [float,...[[float, int],[float, int]...]..]> 
+                it turns to have the following shape: [float,...[[float, int],[float, int]...]..]>
         """
         # Number of angles -> Lv - 1
         if lv_i < self.Lv - 2 :
@@ -94,9 +97,11 @@ class S_Codebook():
             c = []
             for i in range(self.N_sp):
                 phi_0 = (i + 0.5) * self.theta
-                peelist.append([phi_0,None])
                 # Call the same function to compute recursively
-                c[i], peelist[i][1] = self.init_centroids(d, lv_i + 1, previous=previous + (i,))
+                c_i, pl_i = self.init_centroids(d, lv_i + 1, previous=previous + (i,))
+                # Add elements in the list
+                c.append(c_i)
+                peelist.append([phi_0, pl_i])
             return c, peelist
         else:
             # The last layer of the apple peeling method
@@ -211,7 +216,7 @@ class S_Codebook():
         :return: <float, (float)> modulus, n-1-dimensional list containing the spherical coordinates
         """
         # TODO: Debugg division by Zero and ANGLES!!!!!!!
-        sph_coords = ()     # Vector containg the angles
+        sph_coords = ()     # Vector containing the angles
         modulus = np.linalg.norm(c0)
         for i, c in enumerate(c0[:-2]):
             mod_i = np.linalg.norm(c0[i:])
@@ -222,9 +227,9 @@ class S_Codebook():
         # Check divison by zero case:
         if c0[-2] == 0 and last_mod == 0:
             if c0[-1] >= 0:
-                phi_l = math.acos(c0[-2] / last_mod)
+                phi_l = math.acos(0)
             else:
-                phi_l = 2*math.pi-math.acos(c0[-2] / last_mod)
+                phi_l = 2*math.pi-math.acos(0)
         else:
             if c0[-1] >= 0:
                 phi_l = math.acos(c0[-2] / last_mod)
