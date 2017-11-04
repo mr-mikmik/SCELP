@@ -10,6 +10,7 @@ class S_Codebook():
         :param N_sp: <int> Number of point for each pi arch
         :param M_r: <int> Number of codewords in the gain (radius) codebook
         """
+        print 'Initializing the Codebook. Please wait.'
         self.Lv = Lv
         self.N_sp = N_sp
         self.M_r = M_r
@@ -25,22 +26,32 @@ class S_Codebook():
         
         self.centroids_count = 0
         self.c_indx_to_coords = {}
-        # peelist: List contaning 
+        # peelist: List contaning
+        print '\tInitializing centroids & peel-list...'
         self.centroids, self.peelist = self.init_centroids(self.c_indx_to_coords)
+        print '\tInitializing cartesians dic...'
         self.c_indx_to_cart = self.init_cartesians_dic()
+        print '\tInitializing spherical dic...'
         self.c_indx_to_angles = self.init_angle_dic()
+        print '\tInitializing the gain dic...'
+        self.gain_dic = self.init_gain_dic()
+        print '\tDONE--------------------'
 
     def encode(self, d0):
-
-        candidates = self.preselection()
+        gain = np.linalg.norm(d0)
+        candidates = self.preselection(d0)
         # TODO: select the optimum candidate
         codeword_indx = candidates[0]
+        g_indx = self.gain_quantization(gain)
         return codeword_indx, g_indx
 
     def decode(self, codeword_indx, rad_inx):
 
-        codeword = self.c_indx_to_coords(codeword_indx)
-        return codeword
+        codeword = self.c_indx_to_coords[codeword_indx]
+        # TODO: define gain dic
+        gain = 1
+        # gain = self.gain_dic[rad_indx]
+        return codeword*gain
 
     def preselection(self, d0):
         """
@@ -57,7 +68,7 @@ class S_Codebook():
         # 3 - Select the candidiates making use of the peelist
         peeling_centroids = self.centroids
 
-        def search(values,lists):
+        def search(values, lists):
             cand = []
             # Check if we are on the last layer of the lists:
                 # At this stage the list would be as:
@@ -86,6 +97,11 @@ class S_Codebook():
         candidates = search(sph_c0, self.peelist)
 
         return candidates
+
+    # GAIN QUANTIZATION:
+    def gain_quantization(self,g):
+        #TODO: Implement the quantization
+        return g
 
     ## INITIALIZE FUNCTIONS:
 
@@ -198,6 +214,10 @@ class S_Codebook():
             d[i] = math.cos((i + 0.5)*self.theta)
         return d
 
+    def init_gain_dic(self):
+        d = {}
+        # TODO: Define the gain dic
+        return d
 
     ## GETTERS & AUXILIAR FUNCTIONS:
 

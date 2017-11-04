@@ -54,7 +54,7 @@ def r_l(x, l):
     :param l: <int> index of the correlation coeficient
     :return: <float> the value of the correlation coeficient
     """
-    r = 0
+    r = 0.0
     for i in range(len(x)-l):
         r += x[i] * x[i+l]
     return r
