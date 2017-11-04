@@ -3,7 +3,7 @@ import math
 
 class S_Codebook():
 
-    def __init__(self, Lv, N_sp, M_r ):
+    def __init__(self, Lv, N_sp, M_r):
         """
         Inicialize the codebook
         :param Lv: <int> Dimention of the space
@@ -30,6 +30,17 @@ class S_Codebook():
         self.c_indx_to_cart = self.init_cartesians_dic()
         self.c_indx_to_angles = self.init_angle_dic()
 
+    def encode(self, d0):
+
+        candidates = self.preselection()
+        # TODO: select the optimum candidate
+        codeword_indx = candidates[0]
+        return codeword_indx, g_indx
+
+    def decode(self, codeword_indx, rad_inx):
+
+        codeword = self.c_indx_to_coords(codeword_indx)
+        return codeword
 
     def preselection(self, d0):
         """
