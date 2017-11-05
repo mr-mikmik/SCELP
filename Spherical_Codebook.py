@@ -242,7 +242,7 @@ class S_Codebook():
         d_indx = {}
         d_gain = {}
         v_min = 0
-        v_max = 9 * math.sqrt(self.Lv)
+        v_max = 255 * math.sqrt(self.Lv)
         lamb = (v_max-v_min) / (self.M_r)
         for i in range(self.M_r):
             d_indx[i] = lamb * i

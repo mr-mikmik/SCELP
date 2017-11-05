@@ -34,7 +34,7 @@ def encode_simple(x, codebook, window_size, p):
         errors, state = LPC_filter.Az_filter(x_w, alphas, state)
 
         # Encode the errors into the codebook indexes:
-        num_cws = int(num_w_smp/lv) + 1
+        num_cws = int(math.ceil(window_size / lv))
         for c in range(num_cws):
             # TODO: Add zero padding
             e = errors[c*lv : (c+1)*lv]
@@ -46,6 +46,49 @@ def encode_simple(x, codebook, window_size, p):
 
     return codewords_indxs, lpcs
 
+
+def encode_vq(x, codebook, window_size, p):
+    """
+    Encoding using the quantified values in the predictor
+    :param x:
+    :param codebook:
+    :param window_size:
+    :param p: <int> order of the lpc predictor
+    :return:
+        codewords_indxs: <[[(int, int),..],..]> list of list of tuples of 2 ints representing the codeword indexs
+        lpcs: <[[float],]> list containing lists of floats representing the lpc coeffs for each windowed samples
+    """
+    num_samples = len(x)
+    num_w_smp = int(math.ceil(num_samples / window_size))
+    lv = codebook.Lv    # Dimension of the VQ
+    state = np.zeros((p,lv))   # Initialize the state as 0
+    codewords_indxs = []
+    lpcs = []
+    x_q_n = [0 for i in lv]
+    for w in range(num_w_smp):
+        cws = []
+        # Windowed sample
+        # TODO: Add zero padding
+        x_w = x[w*window_size:(w+1)*window_size]
+        # Get the LPC coeffs for that subsamples:
+        lpc_coefs = LPC_estimator.lpc_coefficients(x_w, p)
+        alphas = lpc_coefs[1:]  # Exclude the first 1
+        # Compute the errors
+        p = len(alphas)
+        for n in range(int(math.ceil(window_size/lv))):
+            x_n = np.array(x_w[n*lv:(n+1)*lv])
+            x_p = np.dot(state, alphas)
+            e_n = x_n - x_p
+            cw_indx, g_indx = codebook.encode(e_n)
+            cws.append((cw_indx, g_indx))
+            e_q_n = codebook.decode(cw_indx, g_indx)
+            x_q_n = e_q_n + x_p
+            state = [x_q_n] + state[:-1]
+
+        codewords_indxs.append(cws)
+        lpcs.append(lpc_coefs)
+
+    return codewords_indxs, lpcs
 
 def encode(x, codebook, window_size, p):
     """
@@ -59,7 +102,7 @@ def encode(x, codebook, window_size, p):
         lpcs: <[[float],]> list containing lists of floats representing the lpc coeffs for each windowed samples
     """
     num_samples = len(x)
-    num_w_smp = int(num_samples / window_size) + 1
+    num_w_smp = int(math.ceil(num_samples / window_size))
     lv = codebook.Lv    # Dimension of the VQ
     state = [0 for i in range(p)]   # Initialize the state as 0
     codewords_indxs = []

@@ -7,16 +7,18 @@ Lv = 3
 N_sp = 6
 M_r = 6
 p = 10
-window_size = 10
+window_size = 30
 
 # Create the codebook
 
 codebook = Spherical_Codebook.S_Codebook(Lv, N_sp, M_r)
 
+print 'Peel-list::::::::::::::::::::'
 print codebook.peelist
+print '_______________________________________________'
 
 print 'X'
-x = [random.randint(0,9) for i in range(30)]
+x = [random.randint(0,255) for i in range(30)]
 print x
 
 
