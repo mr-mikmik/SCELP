@@ -22,7 +22,7 @@ def Az_filter(x, alphas,x_previous=None):
     return e, x_previous
 
 
-def Sz_filter(e, alphas, x_previous=None):
+def Sz_filter(e, alphas, x_previous=None, vmax=None, vmin=None):
     """
     Synthesis filter
     Computes the predicts samples for the given set of errors using the previous samples
@@ -40,9 +40,15 @@ def Sz_filter(e, alphas, x_previous=None):
 
     x = []
     for e_n in e:
-        x_n = e_n + np.dot(x_previous, alphas)
-        # TODO: Check round
-        x.append(int(round(x_n)))
+        x_n = int(round(e_n + np.dot(x_previous, alphas)))
+        if vmax is not None:
+            if x_n > vmax:
+                x_n = vmax
+        if vmin is not None:
+            if x_n < vmin:
+                x_n = vmin
+
+        x.append(x_n)
         x_previous = [x_n] + x_previous[:-1]
 
     return x, x_previous

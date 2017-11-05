@@ -41,8 +41,6 @@ class S_Codebook():
     def encode(self, d0):
         gain = np.linalg.norm(d0)
         candidates = self.preselection(d0)
-        # TODO: select the optimum candidate
-        print 'Candidates:'+str(candidates)
         g_indx = self.gain_quantization(gain)
         # Choose the candidate that minimizes the distorsion
         # Distortion = sum(d0[i]-g_indx*candidate[j][i])2
@@ -54,7 +52,6 @@ class S_Codebook():
             if (dist < best_distortion) or (best_distortion == -1):
                 best_candidate = candidate
                 best_distortion = dist
-        print 'Best candidate: '+str(best_candidate)
         codeword_indx = best_candidate
 
         return codeword_indx, g_indx

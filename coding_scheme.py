@@ -5,6 +5,10 @@ import LPC_estimator
 import LPC_filter
 import Spherical_Codebook
 
+
+V_MAX = 255
+V_MIN = 0
+
 def encode_simple(x, codebook, window_size, p):
     """
 
@@ -17,7 +21,9 @@ def encode_simple(x, codebook, window_size, p):
         lpcs: <[[float],]> list containing lists of floats representing the lpc coeffs for each windowed samples
     """
     num_samples = len(x)
-    num_w_smp = int(math.ceil(num_samples / window_size))
+    print num_samples
+    num_w_smp = int(math.ceil(num_samples*1.0 / window_size))
+    print 'num_w_smp: '+str(num_w_smp)
     lv = codebook.Lv # Dimension of the VQ
     state = None
     codewords_indxs = []
@@ -25,8 +31,16 @@ def encode_simple(x, codebook, window_size, p):
     for w in range(num_w_smp):
         cws = []
         # Windowed sample
-        # TODO: Add zero padding
-        x_w = x[w*window_size : (w+1)*window_size]
+        if w == num_w_smp - 1 and num_w_smp > int(num_samples / window_size):
+            # In this case, we need more samples (last window and less samples thant the window size)
+            # Addig zeros on the last windowed
+            x_w_not_full = x[w * window_size:]
+            num_samples_windowed = len(x_w_not_full)
+            num_zeros_padding = window_size - num_samples_windowed
+            zeros_padd = [0 for i in range(num_zeros_padding)]
+            x_w = x_w_not_full + zeros_padd
+        else:
+            x_w = x[w*window_size : (w+1)*window_size]
         # Get the LPC coefs for that subsamples:
         lpc_coefs = LPC_estimator.lpc_coefficients(x_w, p)
         alphas = lpc_coefs[1:] # Exclude the first 1
@@ -59,7 +73,7 @@ def encode_vq(x, codebook, window_size, p):
         lpcs: <[[float],]> list containing lists of floats representing the lpc coeffs for each windowed samples
     """
     num_samples = len(x)
-    num_w_smp = int(math.ceil(num_samples / window_size))
+    num_w_smp = int(math.ceil(num_samples*1.0 / window_size))
     lv = codebook.Lv    # Dimension of the VQ
     state = np.zeros((p,lv))   # Initialize the state as 0
     codewords_indxs = []
@@ -69,7 +83,17 @@ def encode_vq(x, codebook, window_size, p):
         cws = []
         # Windowed sample
         # TODO: Add zero padding
-        x_w = x[w*window_size:(w+1)*window_size]
+        if w == num_w_smp-1 and num_w_smp > int(num_samples/window_size):
+            # In this case, we need more samples (last window and less samples thant the window size)
+            # Addig zeros on the last windowed
+            x_w_not_full = x[w*window_size:]
+            num_samples_windowed = len(x_w_not_full)
+            num_zeros_padding = window_size - num_samples_windowed
+            zeros_padd = [0 for i in range(num_zeros_padding)]
+            x_w = x_w_not_full + zeros_padd
+        else:
+            x_w = x[w*window_size:(w+1)*window_size]
+
         # Get the LPC coeffs for that subsamples:
         lpc_coefs = LPC_estimator.lpc_coefficients(x_w, p)
         alphas = lpc_coefs[1:]  # Exclude the first 1
@@ -102,7 +126,7 @@ def encode(x, codebook, window_size, p):
         lpcs: <[[float],]> list containing lists of floats representing the lpc coeffs for each windowed samples
     """
     num_samples = len(x)
-    num_w_smp = int(math.ceil(num_samples / window_size))
+    num_w_smp = int(math.ceil(num_samples*1.0/ window_size))
     lv = codebook.Lv    # Dimension of the VQ
     state = [0 for i in range(p)]   # Initialize the state as 0
     codewords_indxs = []
@@ -150,7 +174,7 @@ def decode(codewords_indxs, lpcs, codebook):
             e_q = codebook.decode(cw_indx, g_indx)
             errors_q += e_q
         # 2 - Obtain the predicted value:
-        x_w_q, state = LPC_filter.Sz_filter(errors_q, alphas, state)
+        x_w_q, state = LPC_filter.Sz_filter(errors_q, alphas, state, vmax=V_MAX, vmin=V_MIN)
         x_q += x_w_q
 
     return x_q
