@@ -4,9 +4,9 @@ import random
 
 # VARIABLES:
 Lv = 3
-N_sp = 3
-M_r = 4
-p = 5
+N_sp = 6
+M_r = 6
+p = 10
 window_size = 10
 
 # Create the codebook

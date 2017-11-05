@@ -43,16 +43,28 @@ class S_Codebook():
         candidates = self.preselection(d0)
         # TODO: select the optimum candidate
         print 'Candidates:'+str(candidates)
-        codeword_indx = candidates[0]
         g_indx = self.gain_quantization(gain)
+        # Choose the candidate that minimizes the distorsion
+        # Distortion = sum(d0[i]-g_indx*candidate[j][i])2
+        best_candidate = 0
+        best_distortion = -1
+        for candidate in candidates:
+            c0_candidate = [self.g_indx_to_gain[g_indx]*i for i in self.c_indx_to_cart[candidate]]
+            dist = sum( [(d0[i]-c0_candidate[i])**2 for i in range(len(d0))] )
+            if (dist < best_distortion) or (best_distortion == -1):
+                best_candidate = candidate
+                best_distortion = dist
+        print 'Best candidate: '+str(best_candidate)
+        codeword_indx = best_candidate
+
         return codeword_indx, g_indx
 
     def decode(self, codeword_indx, rad_indx):
 
-        codeword = self.c_indx_to_coords[codeword_indx]
+        codeword = self.c_indx_to_cart[codeword_indx]
         # TODO: define gain dic
         gain = self.g_indx_to_gain[rad_indx]
-        return [int(round(c*gain)) for c in codeword]
+        return [c*gain for c in codeword]
 
     def preselection(self, d0):
         """
@@ -68,11 +80,6 @@ class S_Codebook():
         _, sph_c0 = self.cartesian2spherical(c0)
         # 3 - Select the candidiates making use of the peelist
         peeling_centroids = self.peelist[:]
-
-        print 'd0: ' + str(d0)
-        print 'c0: ' + str(c0)
-        print 'sph_c0 '+str(sph_c0)
-        print 'peelist '+str(peeling_centroids)
 
         def search(values, lists):
             cand = []

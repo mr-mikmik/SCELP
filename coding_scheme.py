@@ -1,4 +1,5 @@
 import math
+import numpy as np
 
 import LPC_estimator
 import LPC_filter
@@ -72,17 +73,16 @@ def encode(x, codebook, window_size, p):
         lpc_coefs = LPC_estimator.lpc_coefficients(x_w, p)
         alphas = lpc_coefs[1:]  # Exclude the first 1
         # Compute the errors
-
-        errors, state = LPC_filter.Az_filter(x_w, alphas, state)
-
-        # Encode the errors into the codebook indexes:
-        num_cws = int(num_w_smp/lv) + 1
-        for c in range(num_cws):
-            # TODO: Add zero padding
-            e = errors[c*lv, (c+1)*lv]
-            # Get the index for the current error vector
-            cw_indx, g_indx = codebook.encode(e)
+        p = len(alphas)
+        for x_n in x_w:
+            x_p = np.dot(state, alphas)
+            e_n = x_n - x_p
+            cw_indx, g_indx = codebook.encode(e_n)
             cws.append((cw_indx, g_indx))
+            e_q_n = codebook.decode(cw_indx, g_indx)
+            x_q_n = e_q_n + x_p
+            state = [x_q_n] + state[:-1]
+
         codewords_indxs.append(cws)
         lpcs.append(lpc_coefs)
 
