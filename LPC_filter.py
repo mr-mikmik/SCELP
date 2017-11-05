@@ -41,7 +41,8 @@ def Sz_filter(e, alphas, x_previous=None):
     x = []
     for e_n in e:
         x_n = e_n + np.dot(x_previous, alphas)
-        x.append(x_n)
+        # TODO: Check round
+        x.append(int(round(x_n)))
         x_previous = [x_n] + x_previous[:-1]
 
     return x, x_previous

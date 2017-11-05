@@ -1,3 +1,4 @@
+import math
 
 import LPC_estimator
 import LPC_filter
@@ -15,7 +16,7 @@ def encode_simple(x, codebook, window_size, p):
         lpcs: <[[float],]> list containing lists of floats representing the lpc coeffs for each windowed samples
     """
     num_samples = len(x)
-    num_w_smp = int(num_samples / window_size) + 1
+    num_w_smp = int(math.ceil(num_samples / window_size))
     lv = codebook.Lv # Dimension of the VQ
     state = None
     codewords_indxs = []

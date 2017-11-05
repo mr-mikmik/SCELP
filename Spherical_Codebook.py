@@ -34,24 +34,25 @@ class S_Codebook():
         print '\tInitializing spherical dic...'
         self.c_indx_to_angles = self.init_angle_dic()
         print '\tInitializing the gain dic...'
-        self.gain_dic = self.init_gain_dic()
+        self.g_indx_to_gain, self.gain_dic = self.init_gain_dic()
+
         print '\tDONE--------------------'
 
     def encode(self, d0):
         gain = np.linalg.norm(d0)
         candidates = self.preselection(d0)
         # TODO: select the optimum candidate
+        print 'Candidates:'+str(candidates)
         codeword_indx = candidates[0]
         g_indx = self.gain_quantization(gain)
         return codeword_indx, g_indx
 
-    def decode(self, codeword_indx, rad_inx):
+    def decode(self, codeword_indx, rad_indx):
 
         codeword = self.c_indx_to_coords[codeword_indx]
         # TODO: define gain dic
-        gain = 1
-        # gain = self.gain_dic[rad_indx]
-        return codeword*gain
+        gain = self.g_indx_to_gain[rad_indx]
+        return [int(round(c*gain)) for c in codeword]
 
     def preselection(self, d0):
         """
@@ -66,7 +67,12 @@ class S_Codebook():
         # 2 - Convert the vector to spherical coordinates
         _, sph_c0 = self.cartesian2spherical(c0)
         # 3 - Select the candidiates making use of the peelist
-        peeling_centroids = self.centroids
+        peeling_centroids = self.peelist[:]
+
+        print 'd0: ' + str(d0)
+        print 'c0: ' + str(c0)
+        print 'sph_c0 '+str(sph_c0)
+        print 'peelist '+str(peeling_centroids)
 
         def search(values, lists):
             cand = []
@@ -79,6 +85,10 @@ class S_Codebook():
                     if values[0] <= lists[i][0]:
                         cand.append(lists[i][1])
                         cand.append(lists[i-1][1])
+                        break
+                    elif i == len(lists)-1:
+                        cand.append(lists[-1][1])
+                        cand.append(lists[0][1])
             else:
                 # If we aren't still on the last layer:
                 if values[0] < lists[0][0]:
@@ -89,19 +99,25 @@ class S_Codebook():
                     for i in range(len(lists)-1):
                         if lists[i][0] <= values[0] <= lists[i+1][0]:
                             cand_rec_1 = search(values[1:], lists[i][1])
-                            cand_rec_2 = search(values[1:], lists[i][1])
+                            cand_rec_2 = search(values[1:], lists[i+1][1])
                             cand = cand + cand_rec_1 + cand_rec_2
                             break
             return cand
 
-        candidates = search(sph_c0, self.peelist)
+        candidates = search(sph_c0, peeling_centroids)
+
 
         return candidates
 
     # GAIN QUANTIZATION:
-    def gain_quantization(self,g):
-        #TODO: Implement the quantization
-        return g
+    def gain_quantization(self, g):
+        g_q = 0
+        for k,v in self.gain_dic.items():
+
+            if v[0] <= g <= v[1]:
+                g_q = k
+                break
+        return g_q
 
     ## INITIALIZE FUNCTIONS:
 
@@ -119,7 +135,8 @@ class S_Codebook():
                 it turns to have the following shape: [float,...[[float, int],[float, int]...]..]>
         """
         # Number of angles -> Lv - 1
-        if lv_i < self.Lv - 2 :
+        if lv_i < self.Lv - 2:
+            # All the layers except the last one
             peelist = []
             c = []
             for i in range(self.N_sp):
@@ -215,9 +232,15 @@ class S_Codebook():
         return d
 
     def init_gain_dic(self):
-        d = {}
-        # TODO: Define the gain dic
-        return d
+        d_indx = {}
+        d_gain = {}
+        v_min = 0
+        v_max = 9 * math.sqrt(self.Lv)
+        lamb = (v_max-v_min) / (self.M_r)
+        for i in range(self.M_r):
+            d_indx[i] = lamb * i
+            d_gain[i] = (lamb*i, lamb*(i+1))
+        return d_indx, d_gain
 
     ## GETTERS & AUXILIAR FUNCTIONS:
 
@@ -228,8 +251,14 @@ class S_Codebook():
         :param phi_i: Value of the angle form the previous apple-peeling layer coordinate
         :return: <int> Number of centroids for that layer
         """
-        N_sp_l = int(2 * math.pi / self.theta * math.sin(phi_i))
-        return N_sp_l
+        N_sp_l = 2 * math.pi / self.theta * math.sin(phi_i)
+        N_sp_l_int = int(N_sp_l)
+        diff = N_sp_l - N_sp_l_int
+        # This is a fix to solve the cases where due to the precision of floats, we get a unwanted value
+        if diff > 0.99:
+            return N_sp_l_int+1
+        else:
+            return N_sp_l_int
 
     def get_centroids(self):
         return self.centroids
