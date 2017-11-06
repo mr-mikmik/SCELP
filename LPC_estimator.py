@@ -1,4 +1,5 @@
 import numpy as np
+import audiolazy.lazy_lpc as lazy
 
 def lpc_coefficients(x, p):
     """
@@ -7,8 +8,16 @@ def lpc_coefficients(x, p):
     :param p: <int> Order of the LPC
     :return: The LPC coefficients
     """
-    return levinson_durbin(x, p)
+    #return levinson_durbin(x, p)
+    return levinson(x,p)
 
+def levinson(x,p):
+    m = len(x)
+    hamm = np.hamming(m)
+    x = [x[i] * hamm[i] for i in range(m)]
+    ldfit = lazy.lpc.kautocor(x, p)
+    coefs = ldfit.numerator
+    return coefs
 
 def levinson_durbin(t, p):
     """
@@ -20,9 +29,13 @@ def levinson_durbin(t, p):
     m = len(t) # Number of samples in the input vector
 
     # 1 - Initialize matrix (1x1):
+    # Apply a Hamming window:
+    hamm = np.hamming(m)
+    t = [t[i]*hamm[i] for i in range(m)]
 
     # 1.1 - Compute the  correlation matrix values
     r = [r_l(t, i) for i in range(m+1)]  # Vector with the correlation values
+
     A_k = [1]
     J_k = r[0]
 
@@ -57,3 +70,10 @@ def r_l(x, l):
     for i in range(len(x)-l):
         r += x[i] * x[i+l]
     return r
+
+def autocorr(x, t=1):
+    return np.corrcoef(np.array([x[0:-t], x[t:]]))
+
+def autocorr2(x,t=1):
+    res = np.correlate(x, x, mode='full')
+    return res[res.size/2:]

@@ -41,7 +41,8 @@ audio_writer.setsampwidth(sample_width)
 audio_writer.setframerate(framerate)
 
 print 'Reading the frames'
-frames = audio_reader.readframes(frame_number)
+frames = audio_reader.readframes(1300)
+frames = audio_reader.readframes(frame_number-1300)
 x = []
 for b in frames:
     x.append(int(codecs.encode(b, 'hex'), 16)) #int.from_bytes(frames)

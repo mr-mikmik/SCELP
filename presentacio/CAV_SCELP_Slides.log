@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.14)  3 NOV 2017 20:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.14)  6 NOV 2017 16:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1506,249 +1506,20 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \WF@everypar=\toks57
 Package: wrapfig 2003/01/31  v 3.6
 )
-(/usr/share/texlive/texmf-dist/tex/latex/media9/media9.sty
-(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2016/01/19 v6377 L3 programming layer (loader) 
-
-(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3-code.tex
-Package: expl3 2016/01/19 v6377 L3 programming layer (code)
-L3 Module: l3bootstrap 2016/01/01 v6339 L3 Bootstrap code
-L3 Module: l3names 2015/12/21 v6328 L3 Namespace for primitives
-L3 Module: l3basics 2015/11/22 v6315 L3 Basic definitions
-L3 Module: l3expan 2015/09/10 v5983 L3 Argument expansion
-L3 Module: l3tl 2015/09/29 v6121 L3 Token lists
-L3 Module: l3str 2016/01/03 v6357 L3 Strings
-L3 Module: l3seq 2015/08/05 v5777 L3 Sequences and stacks
-L3 Module: l3int 2016/01/05 v6366 L3 Integers
-\c_max_int=\count196
-\l_tmpa_int=\count197
-\l_tmpb_int=\count198
-\g_tmpa_int=\count199
-\g_tmpb_int=\count266
-L3 Module: l3quark 2015/08/17 v5855 L3 Quarks
-L3 Module: l3prg 2015/11/01 v6216 L3 Control structures
-\g__prg_map_int=\count267
-L3 Module: l3clist 2015/09/02 v5901 L3 Comma separated lists
-L3 Module: l3token 2015/11/11 v6249 L3 Experimental token manipulation
-L3 Module: l3prop 2016/01/05 v6366 L3 Property lists
-L3 Module: l3msg 2015/09/28 v6113 L3 Messages
-L3 Module: l3file 2015/12/03 v6317 L3 File and I/O operations
-\l_iow_line_count_int=\count268
-\l__iow_target_count_int=\count269
-\l__iow_current_line_int=\count270
-\l__iow_current_word_int=\count271
-\l__iow_current_indentation_int=\count272
-L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
-\c_zero_dim=\dimen326
-\c_max_dim=\dimen327
-\l_tmpa_dim=\dimen328
-\l_tmpb_dim=\dimen329
-\g_tmpa_dim=\dimen330
-\g_tmpb_dim=\dimen331
-\c_zero_skip=\skip77
-\c_max_skip=\skip78
-\l_tmpa_skip=\skip79
-\l_tmpb_skip=\skip80
-\g_tmpa_skip=\skip81
-\g_tmpb_skip=\skip82
-\c_zero_muskip=\muskip12
-\c_max_muskip=\muskip13
-\l_tmpa_muskip=\muskip14
-\l_tmpb_muskip=\muskip15
-\g_tmpa_muskip=\muskip16
-\g_tmpb_muskip=\muskip17
-L3 Module: l3keys 2015/11/17 v6284 L3 Key-value interfaces
-\g__keyval_level_int=\count273
-\l_keys_choice_int=\count274
-L3 Module: l3fp 2015/08/25 v5890 L3 Floating points
-\c__fp_leading_shift_int=\count275
-\c__fp_middle_shift_int=\count276
-\c__fp_trailing_shift_int=\count277
-\c__fp_big_leading_shift_int=\count278
-\c__fp_big_middle_shift_int=\count279
-\c__fp_big_trailing_shift_int=\count280
-\c__fp_Bigg_leading_shift_int=\count281
-\c__fp_Bigg_middle_shift_int=\count282
-\c__fp_Bigg_trailing_shift_int=\count283
-L3 Module: l3box 2015/08/09 v5822 L3 Experimental boxes
-\c_empty_box=\box65
-\l_tmpa_box=\box66
-\l_tmpb_box=\box67
-\g_tmpa_box=\box68
-\g_tmpb_box=\box69
-L3 Module: l3coffins 2015/08/06 v5789 L3 Coffin code layer
-\l__coffin_internal_box=\box70
-\l__coffin_internal_dim=\dimen332
-\l__coffin_offset_x_dim=\dimen333
-\l__coffin_offset_y_dim=\dimen334
-\l__coffin_x_dim=\dimen335
-\l__coffin_y_dim=\dimen336
-\l__coffin_x_prime_dim=\dimen337
-\l__coffin_y_prime_dim=\dimen338
-\c_empty_coffin=\box71
-\l__coffin_aligned_coffin=\box72
-\l__coffin_aligned_internal_coffin=\box73
-\l_tmpa_coffin=\box74
-\l_tmpb_coffin=\box75
-\l__coffin_display_coffin=\box76
-\l__coffin_display_coord_coffin=\box77
-\l__coffin_display_pole_coffin=\box78
-\l__coffin_display_offset_dim=\dimen339
-\l__coffin_display_x_dim=\dimen340
-\l__coffin_display_y_dim=\dimen341
-L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
-L3 Module: l3sys 2015/09/25 v6087 L3 Experimental system/runtime functions
-L3 Module: l3candidates 2016/01/14 v6376 L3 Experimental additions to l3kernel
-\l__box_top_dim=\dimen342
-\l__box_bottom_dim=\dimen343
-\l__box_left_dim=\dimen344
-\l__box_right_dim=\dimen345
-\l__box_top_new_dim=\dimen346
-\l__box_bottom_new_dim=\dimen347
-\l__box_left_new_dim=\dimen348
-\l__box_right_new_dim=\dimen349
-\l__box_internal_box=\box79
-\l__coffin_bounding_shift_dim=\dimen350
-\l__coffin_left_corner_dim=\dimen351
-\l__coffin_right_corner_dim=\dimen352
-\l__coffin_bottom_corner_dim=\dimen353
-\l__coffin_top_corner_dim=\dimen354
-\l__coffin_scaled_total_height_dim=\dimen355
-\l__coffin_scaled_width_dim=\dimen356
-L3 Module: l3luatex 2015/11/11 v6250 L3 Experimental LuaTeX-specific functions
+(/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty
+Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count196
 )
-(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
-File: l3pdfmode.def 2015/11/11 v6250 L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count284
-))
-(/usr/share/texlive/texmf-dist/tex/latex/l3experimental/l3str/l3regex.sty
-Package: l3regex 2016/01/19 v6377 L3 Experimental regular expressions
-
-(/usr/share/texlive/texmf-dist/tex/latex/l3experimental/l3str/l3tl-build.sty
-Package: l3tl-build 2016/01/19 v6377 L3 Experimental token list construction
-\l__tl_build_start_index_int=\count285
-\l__tl_build_index_int=\count286
-)
-(/usr/share/texlive/texmf-dist/tex/latex/l3experimental/l3str/l3tl-analysis.sty
-Package: l3tl-analysis 2015/11/09 v6244 L3 Experimental token lists analysis
-\l__tl_analysis_normal_int=\count287
-\l__tl_analysis_index_int=\count288
-\l__tl_analysis_nesting_int=\count289
-\l__tl_analysis_type_int=\count290
-) (/usr/share/texlive/texmf-dist/tex/latex/l3experimental/l3str/l3flag.sty
-Package: l3flag 2016/01/19 v6377 L3 Experimental flags
-)
-(/usr/share/texlive/texmf-dist/tex/latex/l3experimental/l3str/l3str-convert.sty
-Package: l3str-convert 2015/09/26 v6106 L3 Experimental string encoding convers
-ions
-\l__str_internal_int=\count291
-\c__str_replacement_char_int=\count292
-)
-\l__regex_internal_a_int=\count293
-\l__regex_internal_b_int=\count294
-\l__regex_internal_c_int=\count295
-\l__regex_balance_int=\count296
-\l__regex_group_level_int=\count297
-\l__regex_mode_int=\count298
-\l__regex_catcodes_int=\count299
-\l__regex_default_catcodes_int=\count300
-\c__regex_catcode_D_int=\count301
-\c__regex_catcode_S_int=\count302
-\c__regex_catcode_L_int=\count303
-\c__regex_catcode_O_int=\count304
-\c__regex_catcode_A_int=\count305
-\c__regex_all_catcodes_int=\count306
-\l__regex_show_lines_int=\count307
-\l__regex_min_state_int=\count308
-\l__regex_max_state_int=\count309
-\l__regex_left_state_int=\count310
-\l__regex_right_state_int=\count311
-\l__regex_capturing_group_int=\count312
-\l__regex_min_pos_int=\count313
-\l__regex_max_pos_int=\count314
-\l__regex_current_pos_int=\count315
-\l__regex_start_pos_int=\count316
-\l__regex_success_pos_int=\count317
-\l__regex_current_char_int=\count318
-\l__regex_current_catcode_int=\count319
-\l__regex_last_char_int=\count320
-\l__regex_case_changed_char_int=\count321
-\l__regex_current_state_int=\count322
-\l__regex_step_int=\count323
-\l__regex_min_active_int=\count324
-\l__regex_max_active_int=\count325
-\l__regex_replacement_csnames_int=\count326
-\l__regex_match_count_int=\count327
-\l__regex_submatch_int=\count328
-\l__regex_zeroth_submatch_int=\count329
-) (/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2016/01/19 v6377 LaTeX2e option processing using LaTeX3 keys
-)
-(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2016/01/19 v6377 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count330
-\l__xparse_m_args_int=\count331
-\l__xparse_mandatory_args_int=\count332
-\l__xparse_processor_int=\count333
-\l__xparse_v_nesting_int=\count334
-)
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/atenddvi.sty
-Package: atenddvi 2007/04/17 v1.1 At end DVI hook (HO)
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/zref-abspage.sty
-Package: zref-abspage 2012/04/04 v2.24 Module abspage for zref (HO)
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/zref-base.sty
-Package: zref-base 2012/04/04 v2.24 Module base for zref (HO)
-Package zref Info: New property list: main on input line 759.
-Package zref Info: New property: default on input line 760.
-Package zref Info: New property: page on input line 761.
-)
-\c@abspage=\count335
-Package zref Info: New property: abspage on input line 62.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/zref-lastpage.sty
-Package: zref-lastpage 2012/04/04 v2.24 Module lastpage for zref (HO)
-Package zref Info: New property list: LastPage on input line 55.
-))
-Package: media9 2016/03/11 v0.67 acrobat-9/X compatible media
-\g_mix_pkgresizeflag_int=\count336
-
-(/usr/share/texlive/texmf-dist/tex/latex/media9/pdfbase.sty
-Package: pdfbase 2016/03/11 v0.7 driver independent access to low-level PDF fea
-tures
-\g_pbs_oc_int=\count337
-)
-(/usr/share/texlive/texmf-dist/tex/latex/ocgx2/ocgbase.sty
-Package: ocgbase 2016/03/11 v0.6 support package for ocgx2.sty
-)
-\l_mix_poster_box=\box80
-\g_mix_wd_dim=\dimen357
-\g_mix_ht_dim=\dimen358
-\g_mix_dp_dim=\dimen359
-\g_mix_rmcnt_int=\count338
-\l_mix_viewcnt_int=\count339
-\g@mix@page@int=\count340
-\g_mix_resizeflag_int=\count341
-\l_mix_lineno_int=\count342
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \addmediapath with sig. 'm' on line 818.
-.................................................
-\l_mix_pbtn_box=\box81
-\mix@btn@dim=\dimen360
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \includemedia with sig. 'O{}mm' on line 1210.
-.................................................
-\g_mix_mbtncnt_int=\count343
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \mediabutton with sig. 'O{}m' on line 2416.
-.................................................
+(/usr/share/texlive/texmf-dist/tex/latex/hanging/hanging.sty
+Package: hanging 2009/09/02 v1.2b hanging paragraphs and punctuation
+\h@ngcommawd=\skip77
+\h@ngfstopwd=\skip78
+\h@ngquotewd=\skip79
+\h@ngdquotewd=\skip80
+\h@ngquerywd=\skip81
+\h@ngexclwd=\skip82
+\h@ngcolonwd=\skip83
+\h@ngscolonwd=\skip84
 )
 (/usr/share/texlive/texmf-dist/tex/latex/minted/minted.sty
 Package: minted 2015/09/09 v2.1 Yet another Pygments shim for LaTeX
@@ -1758,19 +1529,19 @@ Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
 <2008/02/07> (tvz)
-\FV@CodeLineNo=\count344
+\FV@CodeLineNo=\count197
 \FV@InFile=\read2
-\FV@TabBox=\box82
-\c@FancyVerbLine=\count345
-\FV@StepNumber=\count346
+\FV@TabBox=\box65
+\c@FancyVerbLine=\count198
+\FV@StepNumber=\count199
 \FV@OutFile=\write6
 ) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count347
+\c@float@type=\count266
 \float@exts=\toks58
-\float@box=\box83
+\float@box=\box66
 \@float@everytoks=\toks59
-\@floatcapt=\box84
+\@floatcapt=\box67
 )
 (/usr/share/texlive/texmf-dist/tex/latex/ifplatform/ifplatform.sty
 Package: ifplatform 2010/10/22 v0.4 Testing for the operating system
@@ -1784,103 +1555,68 @@ Package ifplatform Warning:
 
 ) (/usr/share/texlive/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count348
+\linenopenalty=\count267
 \output=\toks60
-\linenoprevgraf=\count349
-\linenumbersep=\dimen361
-\linenumberwidth=\dimen362
-\c@linenumber=\count350
-\c@pagewiselinenumber=\count351
-\c@LN@truepage=\count352
-\c@internallinenumber=\count353
-\c@internallinenumbers=\count354
-\quotelinenumbersep=\dimen363
-\bframerule=\dimen364
-\bframesep=\dimen365
-\bframebox=\box85
+\linenoprevgraf=\count268
+\linenumbersep=\dimen326
+\linenumberwidth=\dimen327
+\c@linenumber=\count269
+\c@pagewiselinenumber=\count270
+\c@LN@truepage=\count271
+\c@internallinenumber=\count272
+\c@internallinenumbers=\count273
+\quotelinenumbersep=\dimen328
+\bframerule=\dimen329
+\bframesep=\dimen330
+\bframebox=\box68
 LaTeX Info: Redefining \\ on input line 3056.
 )
 \minted@appexistsfile=\read3
-\FV@BreakIndent=\dimen366
-\FV@BreakSymbolSepLeft=\dimen367
-\FV@BreakSymbolSepRight=\dimen368
-\FV@BreakSymbolIndentLeft=\dimen369
-\FV@BreakSymbolIndentRight=\dimen370
-\c@FancyVerbLineBreakLast=\count355
-\FV@LineBox=\box86
-\FV@LineIndentBox=\box87
-\minted@bgbox=\box88
+\FV@BreakIndent=\dimen331
+\FV@BreakSymbolSepLeft=\dimen332
+\FV@BreakSymbolSepRight=\dimen333
+\FV@BreakSymbolIndentLeft=\dimen334
+\FV@BreakSymbolIndentRight=\dimen335
+\c@FancyVerbLineBreakLast=\count274
+\FV@LineBox=\box69
+\FV@LineIndentBox=\box70
+\minted@bgbox=\box71
 \minted@code=\write7
-\c@minted@FancyVerbLineTemp=\count356
+\c@minted@FancyVerbLineTemp=\count275
 \@float@every@listing=\toks61
-\c@listing=\count357
+\c@listing=\count276
 )
 runsystem(mkdir -p "_minted-CAV_SCELP_Slides")...disabled (restricted).
 
 
 
-./CAV_SCELP_Slides.tex:59: Package minted Error: You must invoke LaTeX with the
+./CAV_SCELP_Slides.tex:65: Package minted Error: You must invoke LaTeX with the
  -shell-escape flag.
 
 See the minted package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.59 
+l.65 
      
 Pass the -shell-escape flag to LaTeX. Refer to the minted.sty documentation for
  more information.
 
-runsystem(pygmentize -S default -f latex -P commandprefix=PYGdefault > "_minted
--CAV_SCELP_Slides/default.pygstyle")...disabled (restricted).
-
-
-./CAV_SCELP_Slides.tex:59: Package minted Error: Missing Pygments output; \inpu
-tminted was
-probably given a file that does not exist--otherwise, you may need 
-the outputdir package option, or may be using an incompatible build tool.
-
-See the minted package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.59 ^^M
-        
-This could be caused by using -output-directory or -aux-directory 
-without setting minted's outputdir, or by using a build tool that 
-changes paths in ways minted cannot detect.
-
-runsystem(pygmentize -S trac -f latex -P commandprefix=PYGtrac > "_minted-CAV_S
-CELP_Slides/trac.pygstyle")...disabled (restricted).
-
-
-./CAV_SCELP_Slides.tex:60: Package minted Error: Missing Pygments output; \inpu
-tminted was
-probably given a file that does not exist--otherwise, you may need 
-the outputdir package option, or may be using an incompatible build tool.
-
-See the minted package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.60 \usemintedstyle{trac}
-                          ^^M
-This could be caused by using -output-directory or -aux-directory 
-without setting minted's outputdir, or by using a build tool that 
-changes paths in ways minted cannot detect.
-
+(./_minted-CAV_SCELP_Slides/default.pygstyle)
+(./_minted-CAV_SCELP_Slides/trac.pygstyle)
 runsystem(which "pygmentize" && touch "CAV_SCELP_Slides.aex")...disabled (restr
 icted).
 
 
-./CAV_SCELP_Slides.tex:73: Package minted Error: You must have `pygmentize' ins
+
+./CAV_SCELP_Slides.tex:79: Package minted Error: You must have `pygmentize' ins
 talled to use this package.
 
 See the minted package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.73 \begin{document}
+l.79 \begin{document}
                      
 Refer to the installation instructions in the minted documentation for more inf
 ormation.
@@ -1888,20 +1624,20 @@ ormation.
 (./CAV_SCELP_Slides.aux)
 \openout1 = `CAV_SCELP_Slides.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1939,16 +1675,16 @@ LaTeX Font Info:    ... okay on input line 73.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count358
-\scratchdimen=\dimen371
-\scratchbox=\box89
-\nofMPsegments=\count359
-\nofMParguments=\count360
+\scratchcounter=\count277
+\scratchdimen=\dimen336
+\scratchbox=\box72
+\nofMPsegments=\count278
+\nofMParguments=\count279
 \everyMPshowfont=\toks62
-\MPscratchCnt=\count361
-\MPscratchDim=\dimen372
-\MPnumerator=\count362
-\makeMPintoPDFobject=\count363
+\MPscratchCnt=\count280
+\MPscratchDim=\dimen337
+\MPnumerator=\count281
+\makeMPintoPDFobject=\count282
 \everyMPtoPDFconversion=\toks63
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -1966,8 +1702,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box90
-Package hyperref Info: Link coloring OFF on input line 73.
+\AtBeginShipoutBox=\box73
+Package hyperref Info: Link coloring OFF on input line 79.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1975,68 +1711,68 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count364
+\c@section@level=\count283
 )
-LaTeX Info: Redefining \ref on input line 73.
-LaTeX Info: Redefining \pageref on input line 73.
-LaTeX Info: Redefining \nameref on input line 73.
+LaTeX Info: Redefining \ref on input line 79.
+LaTeX Info: Redefining \pageref on input line 79.
+LaTeX Info: Redefining \nameref on input line 79.
 
 (./CAV_SCELP_Slides.out) (./CAV_SCELP_Slides.out)
 \@outlinefile=\write8
 \openout8 = `CAV_SCELP_Slides.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 73.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 79.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 73.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 79.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 73.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 73.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 73.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 73.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 73.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 79.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 73.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 73.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 73.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 79.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 73.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 73.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 73.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 79.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 73.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 73.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 79.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 73.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 79.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 73.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 73.
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 73.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 73.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 73.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 73.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 73.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 79.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 79.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
 (Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 7
-3.
+9.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 
-73.
+79.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 73.
+ut line 79.
 
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-bas
 ic-dictionary/translator-basic-dictionary-English.dict
@@ -2062,7 +1798,7 @@ Dictionary: translator-numbers-dictionary, Language: English
 orem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 73.
+LaTeX Info: Redefining \includegraphics on input line 79.
 
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.13}).
@@ -2073,7 +1809,7 @@ Package caption Info: listings package is loaded.
 Package caption Info: sidecap package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count365
+\c@lstlisting=\count284
 (/usr/share/texlive/texmf-dist/tex/latex/ms/ragged2e.sty
 Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
 
@@ -2083,88 +1819,69 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 126.
 )
-\CenteringLeftskip=\skip83
-\RaggedLeftLeftskip=\skip84
-\RaggedRightLeftskip=\skip85
-\CenteringRightskip=\skip86
-\RaggedLeftRightskip=\skip87
-\RaggedRightRightskip=\skip88
-\CenteringParfillskip=\skip89
-\RaggedLeftParfillskip=\skip90
-\RaggedRightParfillskip=\skip91
-\JustifyingParfillskip=\skip92
-\CenteringParindent=\skip93
-\RaggedLeftParindent=\skip94
-\RaggedRightParindent=\skip95
-\JustifyingParindent=\skip96
+\CenteringLeftskip=\skip85
+\RaggedLeftLeftskip=\skip86
+\RaggedRightLeftskip=\skip87
+\CenteringRightskip=\skip88
+\RaggedLeftRightskip=\skip89
+\RaggedRightRightskip=\skip90
+\CenteringParfillskip=\skip91
+\RaggedLeftParfillskip=\skip92
+\RaggedRightParfillskip=\skip93
+\JustifyingParfillskip=\skip94
+\CenteringParindent=\skip95
+\RaggedLeftParindent=\skip96
+\RaggedRightParindent=\skip97
+\JustifyingParindent=\skip98
 )
-runsystem(pygmentize -S default -f latex -P commandprefix=PYG > "_minted-CAV_SC
-ELP_Slides/default-pyg-prefix.pygstyle")...disabled (restricted).
-
-
-
-./CAV_SCELP_Slides.tex:73: Package minted Error: Missing Pygments output; \inpu
-tminted was
-probably given a file that does not exist--otherwise, you may need 
-the outputdir package option, or may be using an incompatible build tool.
-
-See the minted package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.73 \begin{document}
-                     ^^M
-This could be caused by using -output-directory or -aux-directory 
-without setting minted's outputdir, or by using a build tool that 
-changes paths in ways minted cannot detect.
-
-(./CAV_SCELP_Slides.nav) <./img/logoUPC.png, id=21, 2258.839pt x 473.77pt>
+(./_minted-CAV_SCELP_Slides/default-pyg-prefix.pygstyle)
+(./CAV_SCELP_Slides.nav) <./img/logoUPC.png, id=25, 2258.839pt x 473.77pt>
 File: ./img/logoUPC.png Graphic file (type png)
 
 <use ./img/logoUPC.png>
-Package pdftex.def Info: ./img/logoUPC.png used on input line 75.
+Package pdftex.def Info: ./img/logoUPC.png used on input line 81.
 (pdftex.def)             Requested size: 95.33589pt x 20.0pt.
- <./img/etsetb3.png, id=23, 1495.5875pt x 214.8025pt>
+ <./img/etsetb3.png, id=27, 1495.5875pt x 214.8025pt>
 File: ./img/etsetb3.png Graphic file (type png)
 
 <use ./img/etsetb3.png>
-Package pdftex.def Info: ./img/etsetb3.png used on input line 75.
+Package pdftex.def Info: ./img/etsetb3.png used on input line 81.
 (pdftex.def)             Requested size: 139.2525pt x 20.0pt.
 
-Overfull \hbox (2.29852pt too wide) in paragraph at lines 75--75
+Overfull \hbox (2.29852pt too wide) in paragraph at lines 81--81
 [][] [] 
  []
 
 
-Overfull \vbox (13.79993pt too high) detected at line 75
+Overfull \vbox (13.79993pt too high) detected at line 81
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/logoUPC.png> <./img/
 etsetb3.png>] (./CAV_SCELP_Slides.toc)
-Overfull \hbox (0.4pt too wide) in paragraph at lines 79--79
+Overfull \hbox (0.4pt too wide) in paragraph at lines 85--85
 [][]  
  []
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 79.
+(Font)              size <5> substituted on input line 85.
 
 [2
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 87.
+LaTeX Font Info:    Try loading font information for U+msa on input line 93.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 87.
+LaTeX Font Info:    Try loading font information for U+msb on input line 93.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 87.
+line 93.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
@@ -2172,66 +1889,172 @@ thkerncmss.
 )
 [3
 
-]
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 97.
+] <./img/overview.png, id=57, 897.3525pt x 509.905pt>
+File: ./img/overview.png Graphic file (type png)
 
-LaTeX Font Info:    No file OMScmss.fd. on input line 97.
+<use ./img/overview.png>
+Package pdftex.def Info: ./img/overview.png used on input line 108.
+(pdftex.def)             Requested size: 215.10196pt x 122.22408pt.
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 108
+.
+LaTeX Font Info:    No file OMScmss.fd. on input line 108.
 
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 97.
+(Font)              for symbol `textbullet' on input line 108.
 
 
-Overfull \hbox (0.4pt too wide) in paragraph at lines 97--97
+Overfull \hbox (0.4pt too wide) in paragraph at lines 108--108
 [][]  
+ []
+
+
+Overfull \vbox (6.80405pt too high) detected at line 108
  []
 
 [4
 
-]
-Overfull \hbox (0.4pt too wide) in paragraph at lines 102--102
+ <./img/overview.png>] <./img/Figure_1.png, id=64, 511.9125pt x 263.98625pt>
+File: ./img/Figure_1.png Graphic file (type png)
+
+<use ./img/Figure_1.png>
+Package pdftex.def Info: ./img/Figure_1.png used on input line 121.
+(pdftex.def)             Requested size: 245.83282pt x 126.77237pt.
+
+Overfull \hbox (0.4pt too wide) in paragraph at lines 121--121
 [][]  
  []
 
 [5
 
-] [6
+ <./img/Figure_1.png>] [6
 
 ]
-Overfull \hbox (0.4pt too wide) in paragraph at lines 138--138
+<./img/Centroides.png, id=78, 1371.1225pt x 770.88pt>
+File: ./img/Centroides.png Graphic file (type png)
+
+<use ./img/Centroides.png>
+Package pdftex.def Info: ./img/Centroides.png used on input line 150.
+(pdftex.def)             Requested size: 276.559pt x 155.49068pt.
+
+Overfull \hbox (0.4pt too wide) in paragraph at lines 150--150
 [][]  
+ []
+
+
+Overfull \vbox (16.82074pt too high) detected at line 150
  []
 
 [7
 
-]
-Overfull \hbox (0.4pt too wide) in paragraph at lines 165--165
+ <./img/Centroides.png>]
+Overfull \hbox (0.4pt too wide) in paragraph at lines 163--163
 [][]  
  []
 
 [8
 
 ]
+Overfull \hbox (0.4pt too wide) in paragraph at lines 188--188
+[][]  
+ []
+
+[9
+
+]
+Overfull \hbox (22.66154pt too wide) detected at line 213
+\OML/cmm/m/it/10 ^^^[] \OT1/cmss/m/n/10 = \OT1/mathkerncmss/m/sl/10 arccot[] \O
+T1/cmss/m/n/10 = \OT1/mathkerncmss/m/sl/10 arccos[]
+ []
+
+
+Overfull \hbox (0.69258pt too wide) detected at line 213
+\OML/cmm/m/it/10 ^^^[] \OT1/cmss/m/n/10 = \OT1/mathkerncmss/m/sl/10 arccot[] \O
+T1/cmss/m/n/10 = \OT1/mathkerncmss/m/sl/10 arccos[]
+ []
+
+
+Overfull \hbox (0.4pt too wide) in paragraph at lines 213--213
+[][]  
+ []
+
+
+Overfull \vbox (20.3816pt too high) detected at line 213
+ []
+
+[10
+
+] <./img/closed_loop_scheme_complex.png, id=105, 1371.1225pt x 770.88pt>
+File: ./img/closed_loop_scheme_complex.png Graphic file (type png)
+
+<use ./img/closed_loop_scheme_complex.png>
+Package pdftex.def Info: ./img/closed_loop_scheme_complex.png used on input lin
+e 222.
+(pdftex.def)             Requested size: 307.28987pt x 172.75829pt.
+
+Overfull \hbox (0.4pt too wide) in paragraph at lines 222--222
+[][]  
+ []
+
+[11
+
+ <./img/closed_loop_scheme_complex.png>]
+<./img/optim_search_2.png, id=112, 1035.87pt x 400.49625pt>
+File: ./img/optim_search_2.png Graphic file (type png)
+
+<use ./img/optim_search_2.png>
+Package pdftex.def Info: ./img/optim_search_2.png used on input line 234.
+(pdftex.def)             Requested size: 307.28987pt x 118.80536pt.
+
+Overfull \hbox (0.4pt too wide) in paragraph at lines 234--234
+[][]  
+ []
+
+[12
+
+ <./img/optim_search_2.png>]
+Overfull \hbox (0.4pt too wide) in paragraph at lines 243--243
+[][]  
+ []
+
+[13
+
+]
+Overfull \hbox (0.4pt too wide) in paragraph at lines 255--255
+[][]  
+ []
+
+[14
+
+] [15
+
+]
+Overfull \hbox (0.4pt too wide) in paragraph at lines 269--269
+[][]  
+ []
+
+[16
+
+]
 File: ./img/logoUPC.png Graphic file (type png)
  <use ./img/logoUPC.png>
-Package pdftex.def Info: ./img/logoUPC.png used on input line 169.
+Package pdftex.def Info: ./img/logoUPC.png used on input line 274.
 (pdftex.def)             Requested size: 95.33589pt x 20.0pt.
 File: ./img/etsetb3.png Graphic file (type png)
  <use ./img/etsetb3.png>
-Package pdftex.def Info: ./img/etsetb3.png used on input line 169.
+Package pdftex.def Info: ./img/etsetb3.png used on input line 274.
 (pdftex.def)             Requested size: 139.2525pt x 20.0pt.
 
-Overfull \hbox (2.29852pt too wide) in paragraph at lines 169--169
+Overfull \hbox (2.29852pt too wide) in paragraph at lines 274--274
 [][] [] 
  []
 
 
-Overfull \vbox (13.79993pt too high) detected at line 169
+Overfull \vbox (13.79993pt too high) detected at line 274
  []
 
-Package atenddvi Info: Last page = 9.
-[9
+[17
 
 ]
 \tf@nav=\write9
@@ -2243,13 +2066,13 @@ Package atenddvi Info: Last page = 9.
 \tf@snm=\write11
 \openout11 = `CAV_SCELP_Slides.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 171.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 171.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 276.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 276.
  (./CAV_SCELP_Slides.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 171.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 171.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 276.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 276.
 Package rerunfilecheck Info: File `CAV_SCELP_Slides.out' has not changed.
-(rerunfilecheck)             Checksum: 98F677A1ABECFF061888D6859721E6E4;120.
+(rerunfilecheck)             Checksum: 89886506985E29F1C19D434CAEE6A1BA;146.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -2258,29 +2081,32 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 171.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 276.
  ) 
 Here is how much of TeX's memory you used:
- 51106 strings out of 493029
- 1203257 string characters out of 6136234
- 1461421 words of memory out of 5000000
- 53718 multiletter control sequences out of 15000+600000
- 9110 words of font info for 34 fonts, out of 8000000 for 9000
+ 42232 strings out of 493029
+ 1008454 string characters out of 6136234
+ 1390987 words of memory out of 5000000
+ 44862 multiletter control sequences out of 15000+600000
+ 13255 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,13n,96p,10378b,1858s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy7.pfb>
-Output written on CAV_SCELP_Slides.pdf (9 pages, 671631 bytes).
+ 71i,13n,96p,1762b,902s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy9.pfb>
+Output written on CAV_SCELP_Slides.pdf (17 pages, 1118880 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
- 92 compressed objects within 1 object stream
- 21 named destinations out of 1000 (max. 500000)
- 69 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 197 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 102 words of extra memory for PDF output out of 10000 (max. 10000000)
 
