@@ -5,8 +5,8 @@ class S_Codebook():
 
     def __init__(self, Lv, N_sp, M_r):
         """
-        Inicialize the codebook
-        :param Lv: <int> Dimention of the space
+        Initialize the codebook -> Create the dictionaries and the centroids
+        :param Lv: <int> Dimension of the space
         :param N_sp: <int> Number of point for each pi arch
         :param M_r: <int> Number of codewords in the gain (radius) codebook
         """
@@ -15,7 +15,7 @@ class S_Codebook():
         self.N_sp = N_sp
         self.M_r = M_r
 
-        # Compute the angular distance between two centroids in a pi arch (all expcept the last one)
+        # Compute the angular distance between two centroids in a pi arch (all except the last one)
         self.theta = math.pi/N_sp
 
         # Initialize the sin and cos dictionaries *(to improve the computation efficiency)
@@ -23,7 +23,6 @@ class S_Codebook():
         self.cos_d = self.init_cos_dic()
 
         # Initialize the spherical codebook
-        
         self.centroids_count = 0
         self.c_indx_to_coords = {}
         # peelist: List contaning
@@ -35,32 +34,48 @@ class S_Codebook():
         self.c_indx_to_angles = self.init_angle_dic()
         print '\tInitializing the gain dic...'
         self.g_indx_to_gain, self.gain_dic = self.init_gain_dic()
-
         print '\tDONE--------------------'
 
     def encode(self, d0):
+        """
+        Converts the given vector into 2 index representing the codewords for gain and shape
+        :param d0: <[float]> List containing the vector to be encoded
+        :return:
+            codeword_indx: <int> Index representing the centroid codeword representing the shape
+            g_indx: <int> Index representing the codeword for the gain component
+        """
+        # 1- Gain Quantization:
+        # Compute the gain:
         gain = np.linalg.norm(d0)
-        candidates = self.preselection(d0)
+        # Obtain the gain index:
         g_indx = self.gain_quantization(gain)
-        # Choose the candidate that minimizes the distorsion
-        # Distortion = sum(d0[i]-g_indx*candidate[j][i])2
+
+        # 2 - Shape Quantization:
+        # Get the candidates for the vector
+        candidates = self.preselection(d0)
+
+        # Choose the candidate that minimizes the distortion
+        # The Distortion can be computed as: sum(d0[i]-g_indx*candidate[j][i])2
         best_candidate = 0
-        best_distortion = -1
+        best_distortion = None
         for candidate in candidates:
             c0_candidate = [self.g_indx_to_gain[g_indx]*i for i in self.c_indx_to_cart[candidate]]
-            dist = sum( [(d0[i]-c0_candidate[i])**2 for i in range(len(d0))] )
-            if (dist < best_distortion) or (best_distortion == -1):
+            dist = sum([(d0[i]-c0_candidate[i])**2 for i in range(len(d0))])
+            if (dist < best_distortion) or (best_distortion is None):
                 best_candidate = candidate
                 best_distortion = dist
-
         codeword_indx = best_candidate
 
         return codeword_indx, g_indx
 
     def decode(self, codeword_indx, rad_indx):
-
+        """
+        Converts the given indexs to the resultant quantized vector
+        :param codeword_indx: <int> Index representing the centroid codeword
+        :param rad_indx: <int> Index representing the gain codeword
+        :return: <[float]> List containing the resultant quantized vector
+        """
         codeword = self.c_indx_to_cart[codeword_indx]
-        # TODO: define gain dic
         gain = self.g_indx_to_gain[rad_indx]
         return [c*gain for c in codeword]
 
@@ -73,13 +88,19 @@ class S_Codebook():
         candidates = []
         # 1 - Normalize the vector
         d0_norm = np.linalg.norm(d0)
-        c0 = d0/d0_norm
+        c0 = d0/d0_norm # Vector Normalized
         # 2 - Convert the vector to spherical coordinates
         _, sph_c0 = self.cartesian2spherical(c0)
-        # 3 - Select the candidiates making use of the peelist
-        peeling_centroids = self.peelist[:]
+        # 3 - Select the candidates making use of the peelist
+        peeling_centroids = self.peelist[:] # Make a copy of the peelist
 
         def search(values, lists):
+            """
+            Function to find recursively the candidates of the given list correspondig to the values
+            :param values: <[float]> List containg the values that we want to allocate (coordinatates)
+            :param lists: <[[[..],...],[..],..]> List of sublists representig the peel-list to extract the candidates from
+            :return:
+            """
             cand = []
             # Check if we are on the last layer of the lists:
                 # At this stage the list would be as:
@@ -109,22 +130,27 @@ class S_Codebook():
                             break
             return cand
 
+        # Call the previous function to find the candidates
         candidates = search(sph_c0, peeling_centroids)
-
 
         return candidates
 
     # GAIN QUANTIZATION:
     def gain_quantization(self, g):
-        g_q = 1
+        """
+        Encodes the value given into a codeword index using a log-quantifier
+        :param g: <float> Value to be quantized (Gain)
+        :return: <int> Index of the resulting codeword
+        """
+        g_q = 1 # Iinitialize the index (in case if something goes wrong)
         for k,v in self.gain_dic.items():
-
+            # Find the interval that matches the value
             if v[0] <= g <= v[1]:
                 g_q = k
                 break
         return g_q
 
-    ## INITIALIZE FUNCTIONS:
+    # INITIALIZE FUNCTIONS:
 
     def init_centroids(self, d, lv_i=0, previous=()):
         """
@@ -199,8 +225,12 @@ class S_Codebook():
 
 
 
-    def init_angle_dic(self,):
-        d = self.c_indx_to_coords
+    def init_angle_dic(self):
+        """
+        Initializes the angle dictionary that matches the centroid index with the spherical coordinates (angles)
+        :return: <{int:[float,..]}> Dictionary matching the index to the spherical coordinates
+        """
+        d = self.c_indx_to_coords # We make use of the c_indx_to_coords, so it must be used after initialize it
         angle_dic = {}
         for k, coords in d.items():
             angles = ()
@@ -237,17 +267,27 @@ class S_Codebook():
         return d
 
     def init_gain_dic(self):
+        """
+        Initializes 2 gain dictionaries used in the gain quantization
+        :return:
+            d_indx: <{int:int}> Dictionary matching the gain codeword index with their codeword
+            d_gain: <{int:(float,float)}> Dictionary matching the gain codeword index with the bounds of the segment
+            (lower_boud, upper_bound) so any value between those values is quantized into the codeword
+        """
         d_indx = {}
         d_gain = {}
+        # Set the maximum and minimum values in order to quantize taking those into account
         v_min = 0
         v_max = 500 * math.sqrt(self.Lv)
         lamb = (v_max-v_min) / (self.M_r)
         i = self.M_r
         up_l = v_max
-        dl_l = 1.0 * v_max/20**(3.0/20)
+        dl_l = 1.0 * v_max/20**(3.0/20) # Samples seperate 3dB
         while i >0:
+            # Assign the values to the dic
             d_indx[i] = up_l
             d_gain[i] = (dl_l, up_l)
+            #update the bounding limits
             up_l = dl_l
             dl_l = dl_l/20**(3.0/20)
             i-=1
