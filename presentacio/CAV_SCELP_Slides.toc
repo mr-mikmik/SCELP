@@ -1,5 +1,7 @@
 \beamer@endinputifotherversion {3.36pt}
 \select@language {english}
-\beamer@sectionintoc {1}{SCELP}{3}{0}{1}
-\beamer@sectionintoc {2}{Spherical Codebook}{6}{0}{2}
+\beamer@sectionintoc {1}{SCELP: An overview of the proposal}{3}{0}{1}
+\beamer@sectionintoc {2}{Spherical Codebook}{8}{0}{2}
 \beamer@sectionintoc {3}{Our Implementation}{15}{0}{3}
+\beamer@sectionintoc {4}{Our Simulations $\&$ Results}{18}{0}{4}
+\beamer@sectionintoc {5}{Conclusions}{26}{0}{5}

@@ -52,6 +52,7 @@ class S_Codebook():
             if (dist < best_distortion) or (best_distortion == -1):
                 best_candidate = candidate
                 best_distortion = dist
+
         codeword_indx = best_candidate
 
         return codeword_indx, g_indx
@@ -115,7 +116,7 @@ class S_Codebook():
 
     # GAIN QUANTIZATION:
     def gain_quantization(self, g):
-        g_q = 0
+        g_q = 1
         for k,v in self.gain_dic.items():
 
             if v[0] <= g <= v[1]:
@@ -239,11 +240,17 @@ class S_Codebook():
         d_indx = {}
         d_gain = {}
         v_min = 0
-        v_max = 255 * math.sqrt(self.Lv)
+        v_max = 500 * math.sqrt(self.Lv)
         lamb = (v_max-v_min) / (self.M_r)
-        for i in range(self.M_r):
-            d_indx[i] = lamb * i
-            d_gain[i] = (lamb*i, lamb*(i+1))
+        i = self.M_r
+        up_l = v_max
+        dl_l = 1.0 * v_max/20**(3.0/20)
+        while i >0:
+            d_indx[i] = up_l
+            d_gain[i] = (dl_l, up_l)
+            up_l = dl_l
+            dl_l = dl_l/20**(3.0/20)
+            i-=1
         return d_indx, d_gain
 
     ## GETTERS & AUXILIAR FUNCTIONS:

@@ -6,8 +6,8 @@ import LPC_filter
 import Spherical_Codebook
 
 
-V_MAX = None
-V_MIN = None
+V_MAX = 255
+V_MIN = 0
 
 def encode_simple(x, codebook, window_size, p):
     """
@@ -254,3 +254,22 @@ def decode_errors(codewords_indxs, lpcs, codebook, err, num_err):
         x_q += x_w_q
 
     return x_q
+
+def decode_error_extraction(codewords_indxs, lpcs, codebook):
+    num_w_smp = len(lpcs)
+    state = None
+    errors_q = []
+    for w in range(num_w_smp):
+        # - Unwrap the subsamples:
+        lpc_coefs = lpcs[w]
+        alphas = lpc_coefs[1:]
+        cws = codewords_indxs[w]
+        # Obtain the errors
+        for c in cws:
+            cw_indx = c[0]
+            g_indx = c[1]
+            # Reconstruct the encoded elements (indx -> codeword)
+            e_q = codebook.decode(cw_indx, g_indx)
+            errors_q += e_q
+
+    return errors_q
