@@ -4,10 +4,12 @@ import random
 import numpy as np
 import math
 
+# PARAMETERS TO TUNE:
 lv = 10
 Nsp = 3
 Mr = 2**6
 
+# Codebook creation
 sc = s.S_Codebook(lv,Nsp,Mr)
 
 

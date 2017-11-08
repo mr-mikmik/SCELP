@@ -149,6 +149,6 @@ def simulation_errors():
     print 'DONE :)'
 
 
-
+# TODO: Select the simulation we want: simulation_random() or simulation_errors()
 
 simulation_random()
